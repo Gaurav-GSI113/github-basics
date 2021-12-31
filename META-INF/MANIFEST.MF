@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-Version: 0.0.1-SNAPSHOT
+Seeburger-BICNG-Resources: html_report_template.properties,SEEDELFOR_V
+ 3_0.seexsd;type=schema;messageType=XML,HIGHJUMP_LNS_SEELOG_to_PURCHAS
+ EORDER_REL1.seemap;type=mapping;targetSchemas=SND_Warehouse_B2B_APIs_
+ 100_distribution-center_purchase-order_post_requestBody.seexsd;source
+ Schemas=SEEDELFOR_V3_0.seexsd,SND_Warehouse_B2B_APIs_100_distribution
+ -center_purchase-order_post_requestBody.seexsd;type=schema;messageTyp
+ e=JSON
+

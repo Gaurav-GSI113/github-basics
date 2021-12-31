@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+ <xs:element name="SEEDELFOR" type="SEEDELFOR"/>
+ <xs:complexType name="SEEDELFOR">
+  <xs:sequence>
+   <xs:element name="SEE_AG">
+    <xs:complexType>
+     <xs:attribute name="COPYRIGHT" type="xs:string" use="required"/>
+     <xs:attribute name="CREATION_DATE" type="xs:string" use="required"/>
+     <xs:attribute name="MESSAGE" type="xs:string" use="required"/>
+     <xs:attribute name="MAPPING" type="xs:string"/>
+     <xs:attribute name="VERSION" type="xs:string"/>
+    </xs:complexType>
+   </xs:element>
+   <xs:element maxOccurs="unbounded" name="CNT">
+    <xs:annotation>
+     <xs:appinfo>
+      <title>Interchange Control Header Group</title>
+     </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element name="IC">
+       <xs:annotation>
+        <xs:appinfo>
+         <title>Interchange Control Header</title>
+        </xs:appinfo>
+       </xs:annotation>
+       <xs:complexType>
+        <xs:sequence>
+         <xs:element minOccurs="0" name="TRANSMISSION_DATE" type="xs:string"/>
+         <xs:element minOccurs="0" name="TRANSMISSION_TIME" type="xs:string"/>
+         <xs:element minOccurs="0" name="INTERCHANGE_CONTROL_NUMBER" type="xs:string"/>
+         <xs:element minOccurs="0" name="SENDER" type="xs:string"/>
+         <xs:element minOccurs="0" name="SENDER_QUALIFIER" type="xs:string"/>
+         <xs:element minOccurs="0" name="REVERSE_ROUTING_ADDRESS" type="xs:string"/>
+         <xs:element minOccurs="0" name="RECEIVER" type="xs:string"/>
+         <xs:element minOccurs="0" name="RECEIVER_QUALIFIER" type="xs:string"/>
+         <xs:element minOccurs="0" name="ROUTING_ADDRESS" type="xs:string"/>
+         <xs:element minOccurs="0" name="TESTFLAG" type="xs:string"/>
+         <xs:element minOccurs="0" name="RECEIVER_PASSWORD" type="xs:string"/>
+         <xs:element minOccurs="0" name="RECEIVER_PASSWORD_QUALIFIER" type="xs:string"/>
+         <xs:element minOccurs="0" name="RESPONSE_REQUIRED" type="xs:string"/>
+         <xs:element minOccurs="0" name="APPLICATION_REFERENCE" type="xs:string"/>
+         <xs:element minOccurs="0" name="PROCESS_PRIO" type="xs:string"/>
+         <xs:element minOccurs="0" name="COMMUNICATION_AGREEMENT" type="xs:string"/>
+         <xs:element minOccurs="0" name="SYNTAX_IDENTIFIER" type="xs:string"/>
+         <xs:element minOccurs="0" name="SYNTAX_VERSION" type="xs:string"/>
+         <xs:element minOccurs="0" name="ADDITIONAL_INFO" type="xs:string"/>
+         <xs:element maxOccurs="unbounded" minOccurs="0" name="REF" type="REF">
+          <xs:annotation>
+           <xs:appinfo>
+            <title>Reference</title>
+           </xs:appinfo>
+          </xs:annotation>
+         </xs:element>
+        </xs:sequence>
+       </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="FILTER_SET">
+       <xs:complexType>
+        <xs:sequence>
+         <xs:element minOccurs="0" name="KEY_01" type="xs:string"/>
+         <xs:element minOccurs="0" name="KEY_02" type="xs:string"/>
+         <xs:element minOccurs="0" name="KEY_03" type="xs:string"/>
+         <xs:element minOccurs="0" name="KEY_04" type="xs:string"/>
+         <xs:element minOccurs="0" name="KEY_05" type="xs:string"/>
+         <xs:element minOccurs="0" name="KEY_06" type="xs:string"/>
+         <xs:element minOccurs="0" name="KEY_07" type="xs:string"/>
+         <xs:element minOccurs="0" name="KEY_08" type="xs:string"/>
+         <xs:element minOccurs="0" name="KEY_09" type="xs:string"/>
+         <xs:element minOccurs="0" name="KEY_10" type="xs:string"/>
+        </xs:sequence>
+       </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="GRP">
+       <xs:annotation>
+        <xs:appinfo>
+         <title>Functional Group Header Group</title>
+        </xs:appinfo>
+       </xs:annotation>
+       <xs:complexType>
+        <xs:sequence>
+         <xs:element minOccurs="0" name="FG">
+          <xs:annotation>
+           <xs:appinfo>
+            <title>Functional Group Header</title>
+           </xs:appinfo>
+          </xs:annotation>
+          <xs:complexType>
+           <xs:sequence>
+            <xs:element minOccurs="0" name="IDENTIFIER" type="xs:string"/>
+            <xs:element minOccurs="0" name="SENDER" type="xs:string"/>
+            <xs:element minOccurs="0" name="SENDER_QUALIFIER" type="xs:string"/>
+            <xs:element minOccurs="0" name="RECEIVER" type="xs:string"/>
+            <xs:element minOccurs="0" name="RECEIVER_QUALIFIER" type="xs:string"/>
+            <xs:element minOccurs="0" name="TRANSMISSION_DATE" type="xs:string"/>
+            <xs:element minOccurs="0" name="TRANSMISSION_TIME" type="xs:string"/>
+            <xs:element minOccurs="0" name="GROUP_CONTROL_NUMBER" type="xs:string"/>
+            <xs:element minOccurs="0" name="AGENCY" type="xs:string"/>
+            <xs:element minOccurs="0" name="MESSAGE_VERSION_NUMBER" type="xs:string"/>
+            <xs:element minOccurs="0" name="ASSOCIATION_ASSIGNED_CODE" type="xs:string"/>
+            <xs:element minOccurs="0" name="APPLICATION_PASSWORT" type="xs:string"/>
+            <xs:element minOccurs="0" name="MESSAGE_RELEASE_NUMBER" type="xs:string"/>
+            <xs:element minOccurs="0" name="ADDITIONAL_INFO" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="REF" type="REF"/>
+           </xs:sequence>
+          </xs:complexType>
+         </xs:element>
+         <xs:element maxOccurs="unbounded" name="MSG">
+          <xs:annotation>
+           <xs:appinfo>
+            <title>Message Header Group</title>
+           </xs:appinfo>
+          </xs:annotation>
+          <xs:complexType>
+           <xs:sequence>
+            <xs:element name="ME">
+             <xs:annotation>
+              <xs:appinfo>
+               <title>Message Header</title>
+              </xs:appinfo>
+             </xs:annotation>
+             <xs:complexType>
+              <xs:sequence>
+               <xs:element minOccurs="0" name="MESSAGE_NUMBER" type="xs:string"/>
+               <xs:element minOccurs="0" name="MESSAGE_TYPE" type="xs:string"/>
+               <xs:element minOccurs="0" name="MESSAGE_TYPE_VERSION" type="xs:string"/>
+               <xs:element minOccurs="0" name="MESSAGE_TYPE_RELEASE" type="xs:string"/>
+               <xs:element minOccurs="0" name="CONTROLLING_AGENCY" type="xs:string"/>
+               <xs:element minOccurs="0" name="ASSOC_ASSIGNED_CODE" type="xs:string"/>
+               <xs:element minOccurs="0" name="COMMON_ACCESS_REFERENCE" type="xs:string"/>
+               <xs:element minOccurs="0" name="SEQUENCE_OF_TRANSFER" type="xs:string"/>
+               <xs:element minOccurs="0" name="FIRST_AND_LAST_TRANSFER" type="xs:string"/>
+               <xs:element minOccurs="0" name="ADDITIONAL_INFO" type="xs:string"/>
+              </xs:sequence>
+             </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ADD" type="ADD">
+             <xs:annotation>
+              <xs:appinfo>
+               <title>Addresses</title>
+              </xs:appinfo>
+             </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="REF" type="REF"/>
+            <xs:element minOccurs="0" name="WEIGHT_AND_VOLUME" type="WEIGHT_AND_VOLUME"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="QTY" type="QTY">
+             <xs:annotation>
+              <xs:appinfo>
+               <title>Quantity</title>
+              </xs:appinfo>
+             </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="TXT" type="TXT"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="DATE" type="DATE"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="CURRENCY">
+             <xs:complexType>
+              <xs:sequence>
+               <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+               <xs:element minOccurs="0" name="CURRENCY" type="xs:string"/>
+               <xs:element minOccurs="0" name="ADDITIONAL_QUALIFIER" type="xs:string"/>
+               <xs:element minOccurs="0" name="CURRENCY_RATE_BASE" type="xs:string"/>
+               <xs:element minOccurs="0" name="RATE_OF_EXCHANGE" type="xs:string"/>
+               <xs:element minOccurs="0" name="CURRENCY_MARKET_EXCHANGE" type="xs:string"/>
+              </xs:sequence>
+             </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="TAX" type="TAX"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="TERMS_OF_PAYMENT">
+             <xs:complexType>
+              <xs:sequence>
+               <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+               <xs:element minOccurs="0" name="TIME_REFERENCE_CODED" type="xs:string"/>
+               <xs:element minOccurs="0" name="TIME_RELATION_CODED" type="xs:string"/>
+               <xs:element minOccurs="0" name="PERIOD_TYPE" type="xs:string"/>
+               <xs:element minOccurs="0" name="NUMBER_OF_PERIODS" type="xs:string"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="PERCENTAGE">
+                <xs:complexType>
+                 <xs:sequence>
+                  <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+                  <xs:element minOccurs="0" name="PERCENTAGE" type="xs:string"/>
+                 </xs:sequence>
+                </xs:complexType>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="DATE" type="DATE"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="TXT" type="TXT"/>
+              </xs:sequence>
+             </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="ALLOWANCE_CHARGE" type="ALLOWANCE_CHARGE"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="AMOUNT_DETAILS" type="AMOUNT_DETAILS"/>
+            <xs:element minOccurs="0" name="TRANSPORT_DETAILS">
+             <xs:complexType>
+              <xs:sequence>
+               <xs:element minOccurs="0" name="TRANSPORT_NUMBER" type="xs:string"/>
+               <xs:element minOccurs="0" name="MODE_OF_TRANSPORT" type="xs:string"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="ADDITIONAL_DETAILS">
+                <xs:complexType>
+                 <xs:sequence>
+                  <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+                  <xs:element minOccurs="0" name="DETAILS" type="xs:string"/>
+                 </xs:sequence>
+                </xs:complexType>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="DATE" type="DATE"/>
+              </xs:sequence>
+             </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" name="ITEM">
+             <xs:annotation>
+              <xs:appinfo>
+               <title>Item information</title>
+              </xs:appinfo>
+             </xs:annotation>
+             <xs:complexType>
+              <xs:sequence>
+               <xs:element minOccurs="0" name="ITEM_POS">
+                <xs:annotation>
+                 <xs:appinfo>
+                  <title>Item Position Description</title>
+                 </xs:appinfo>
+                </xs:annotation>
+                <xs:complexType>
+                 <xs:sequence>
+                  <xs:element minOccurs="0" name="LINE_ITEM_NUMBER" type="xs:string"/>
+                  <xs:element minOccurs="0" name="LINE_SUB_ITEM_NUMBER" type="xs:string"/>
+                  <xs:element minOccurs="0" name="COUNTRY_OF_ORIGIN" type="xs:string"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="ITEM_DESCRIPTION" type="xs:string"/>
+                 </xs:sequence>
+                </xs:complexType>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="ITEM_NUMBER">
+                <xs:complexType>
+                 <xs:sequence>
+                  <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+                  <xs:element minOccurs="0" name="ITEM_NUMBER" type="xs:string"/>
+                  <xs:element minOccurs="0" name="ADDITIONAL_INFO" type="xs:string"/>
+                 </xs:sequence>
+                </xs:complexType>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="QTY" type="QTY"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="AMOUNT_DETAILS" type="AMOUNT_DETAILS"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="REF" type="REF"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="DATE" type="DATE"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="ADD" type="ADD"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="WEIGHT_AND_VOLUME" type="WEIGHT_AND_VOLUME"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="TXT" type="TXT"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="PACKAGE_DETAILS">
+                <xs:complexType>
+                 <xs:sequence>
+                  <xs:element minOccurs="0" name="LABEL" type="xs:string"/>
+                  <xs:element minOccurs="0" name="PACKAGE_PARTNUMBER_CUSTOMER" type="xs:string"/>
+                  <xs:element minOccurs="0" name="PACKAGE_PARTNUMBER_SUPPLIER" type="xs:string"/>
+                  <xs:element minOccurs="0" name="NUMBER_OF_PACKAGES" type="xs:string"/>
+                  <xs:element minOccurs="0" name="QUANTITY_PER_PACKAGE" type="xs:string"/>
+                  <xs:element minOccurs="0" name="QUANTITY_UNIT" type="xs:string"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="WEIGHT_AND_VOLUME" type="WEIGHT_AND_VOLUME"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="REF" type="REF"/>
+                 </xs:sequence>
+                </xs:complexType>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="TAX" type="TAX">
+                <xs:annotation>
+                 <xs:appinfo>
+                  <title>Tax Information</title>
+                 </xs:appinfo>
+                </xs:annotation>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="ALLOWANCE_CHARGE" type="ALLOWANCE_CHARGE"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="QTY_DATE_REF">
+                <xs:complexType>
+                 <xs:sequence>
+                  <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+                  <xs:element minOccurs="0" name="DATE" type="xs:string"/>
+                  <xs:element minOccurs="0" name="TIME" type="xs:string"/>
+                  <xs:element minOccurs="0" name="QUANTITY" type="xs:string"/>
+                  <xs:element minOccurs="0" name="QUANTITY_UNIT" type="xs:string"/>
+                  <xs:element minOccurs="0" name="REFERENCE" type="xs:string"/>
+                  <xs:element minOccurs="0" name="DATE_END" type="xs:string"/>
+                  <xs:element minOccurs="0" name="TIME_END" type="xs:string"/>
+                  <xs:element minOccurs="0" name="QUANTITY_END" type="xs:string"/>
+                  <xs:element minOccurs="0" name="ADDITIONAL_INFO" type="xs:string"/>
+                 </xs:sequence>
+                </xs:complexType>
+               </xs:element>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="SCHEDULE">
+                <xs:complexType>
+                 <xs:sequence>
+                  <xs:element minOccurs="0" name="START_DATE" type="xs:string"/>
+                  <xs:element minOccurs="0" name="START_TIME" type="xs:string"/>
+                  <xs:element minOccurs="0" name="END_DATE" type="xs:string"/>
+                  <xs:element minOccurs="0" name="END_TIME" type="xs:string"/>
+                  <xs:element minOccurs="0" name="QUANTITY" type="xs:string"/>
+                  <xs:element minOccurs="0" name="CUM_QUANTITY" type="xs:string"/>
+                  <xs:element minOccurs="0" name="QUANTITY_UNIT" type="xs:string"/>
+                  <xs:element minOccurs="0" name="FORECAST_QUALIFIER" type="xs:string"/>
+                  <xs:element minOccurs="0" name="TIMING_QUALIFIER" type="xs:string"/>
+                  <xs:element minOccurs="0" name="NUMBER_OF_WORKING_DAYS" type="xs:string"/>
+                  <xs:element minOccurs="0" name="ORIGINAL_DATE_TIME" type="xs:string"/>
+                  <xs:element minOccurs="0" name="ORIGINAL_DATE_TIME_CODE" type="xs:string"/>
+                  <xs:element minOccurs="0" name="TIME_PERIOD_CODED" type="xs:string"/>
+                  <xs:element minOccurs="0" name="DELIVERY_REQUIREMENTS_CODED" type="xs:string">
+                   <xs:annotation>
+                    <xs:documentation>SCC.4493</xs:documentation>
+                   </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="DESPATCH_PATTERN_TIMING_CODED" type="xs:string">
+                   <xs:annotation>
+                    <xs:documentation>SCC.2017</xs:documentation>
+                   </xs:annotation>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="REF" type="REF"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="DATE" type="DATE"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="TXT" type="TXT"/>
+                 </xs:sequence>
+                </xs:complexType>
+               </xs:element>
+              </xs:sequence>
+             </xs:complexType>
+            </xs:element>
+           </xs:sequence>
+          </xs:complexType>
+         </xs:element>
+        </xs:sequence>
+       </xs:complexType>
+      </xs:element>
+     </xs:sequence>
+    </xs:complexType>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="REF">
+  <xs:sequence>
+   <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+   <xs:element minOccurs="0" name="REFERENCE" type="xs:string"/>
+   <xs:element minOccurs="0" name="REFERENCE_DATE" type="xs:string"/>
+   <xs:element minOccurs="0" name="REFERENCE_TIME" type="xs:string"/>
+   <xs:element minOccurs="0" name="ADDITIONAL_INFO" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="ADD">
+  <xs:sequence>
+   <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+   <xs:element minOccurs="0" name="IDENTIFIER" type="xs:string"/>
+   <xs:element minOccurs="0" name="AGENCY_CODE" type="xs:string"/>
+   <xs:element minOccurs="0" name="NAME_1" type="xs:string"/>
+   <xs:element minOccurs="0" name="NAME_2" type="xs:string"/>
+   <xs:element minOccurs="0" name="NAME_3" type="xs:string"/>
+   <xs:element minOccurs="0" name="NAME_4" type="xs:string"/>
+   <xs:element minOccurs="0" name="NAME_5" type="xs:string"/>
+   <xs:element minOccurs="0" name="PARTY_NAME_1" type="xs:string"/>
+   <xs:element minOccurs="0" name="PARTY_NAME_2" type="xs:string"/>
+   <xs:element minOccurs="0" name="PARTY_NAME_3" type="xs:string"/>
+   <xs:element minOccurs="0" name="PARTY_NAME_4" type="xs:string"/>
+   <xs:element minOccurs="0" name="PARTY_NAME_5" type="xs:string"/>
+   <xs:element minOccurs="0" name="STREET_1" type="xs:string"/>
+   <xs:element minOccurs="0" name="STREET_2" type="xs:string"/>
+   <xs:element minOccurs="0" name="STREET_3" type="xs:string"/>
+   <xs:element minOccurs="0" name="STREET_4" type="xs:string"/>
+   <xs:element minOccurs="0" name="PO_BOX" type="xs:string"/>
+   <xs:element minOccurs="0" name="CITY" type="xs:string"/>
+   <xs:element minOccurs="0" name="STATE" type="xs:string"/>
+   <xs:element minOccurs="0" name="POSTAL_CODE" type="xs:string"/>
+   <xs:element minOccurs="0" name="COUNTRY_CODE" type="xs:string"/>
+   <xs:element minOccurs="0" name="COUNTRY" type="xs:string"/>
+   <xs:element maxOccurs="unbounded" minOccurs="0" name="ADDITIONAL_DATA">
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+      <xs:element minOccurs="0" name="DATA" type="xs:string"/>
+     </xs:sequence>
+    </xs:complexType>
+   </xs:element>
+   <xs:element maxOccurs="unbounded" minOccurs="0" name="CONTACT">
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+      <xs:element minOccurs="0" name="DEPARTMENT" type="xs:string"/>
+      <xs:element minOccurs="0" name="PERSON" type="xs:string"/>
+      <xs:element minOccurs="0" name="FUNCTION" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="CONTACT_NUMBERS">
+       <xs:complexType>
+        <xs:sequence>
+         <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+         <xs:element minOccurs="0" name="NUMBER" type="xs:string"/>
+        </xs:sequence>
+       </xs:complexType>
+      </xs:element>
+     </xs:sequence>
+    </xs:complexType>
+   </xs:element>
+   <xs:element maxOccurs="unbounded" minOccurs="0" name="ACCOUNT_INFORMATION">
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element minOccurs="0" name="ACCOUNT_NUMBER" type="xs:string"/>
+      <xs:element minOccurs="0" name="BANK_CODE" type="xs:string"/>
+      <xs:element minOccurs="0" name="COUNTRY_CODE" type="xs:string"/>
+      <xs:element minOccurs="0" name="IBAN_CODE" type="xs:string"/>
+      <xs:element minOccurs="0" name="SWIFT_CODE" type="xs:string"/>
+      <xs:element minOccurs="0" name="BANK_NAME" type="xs:string"/>
+      <xs:element minOccurs="0" name="ACCOUNT_HOLDER_NAME" type="xs:string"/>
+     </xs:sequence>
+     <xs:attribute name="QUALIFIER" type="xs:string"/>
+    </xs:complexType>
+   </xs:element>
+   <xs:element maxOccurs="unbounded" minOccurs="0" name="TXT" type="TXT">
+    <xs:annotation>
+     <xs:appinfo>
+      <title>Text</title>
+     </xs:appinfo>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="TXT">
+  <xs:sequence>
+   <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+   <xs:element minOccurs="0" name="LANGUAGE_CODED" type="xs:string"/>
+   <xs:element maxOccurs="unbounded" minOccurs="0" name="TEXT_LINE" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="WEIGHT_AND_VOLUME">
+  <xs:sequence>
+   <xs:element minOccurs="0" name="NET_WEIGHT" type="xs:string"/>
+   <xs:element minOccurs="0" name="GROSS_WEIGHT" type="xs:string"/>
+   <xs:element minOccurs="0" name="TARA_WEIGHT" type="xs:string"/>
+   <xs:element minOccurs="0" name="UNIT_OF_WEIGHT" type="xs:string"/>
+   <xs:element minOccurs="0" name="LENGTH" type="xs:string"/>
+   <xs:element minOccurs="0" name="WIDTH" type="xs:string"/>
+   <xs:element minOccurs="0" name="HEIGHT" type="xs:string"/>
+   <xs:element minOccurs="0" name="MEASUREMENT_UNIT" type="xs:string"/>
+   <xs:element minOccurs="0" name="VOLUME" type="xs:string"/>
+   <xs:element minOccurs="0" name="UNIT_OF_VOLUME" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="QTY">
+  <xs:sequence>
+   <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+   <xs:element minOccurs="0" name="QUANTITY" type="xs:string"/>
+   <xs:element minOccurs="0" name="QUANTITY_UNIT" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="DATE">
+  <xs:sequence>
+   <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+   <xs:element minOccurs="0" name="DATE" type="xs:string"/>
+   <xs:element minOccurs="0" name="TIME" type="xs:string"/>
+   <xs:element minOccurs="0" name="ADDITIONAL_INFO" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="ALLOWANCE_CHARGE">
+  <xs:sequence>
+   <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+   <xs:element minOccurs="0" name="SIGN_ALLOWANCE_CHARGE" type="xs:string"/>
+   <xs:element minOccurs="0" name="CONDITION_KEY" type="xs:string"/>
+   <xs:element minOccurs="0" name="CONDITION_TEXT" type="xs:string"/>
+   <xs:element minOccurs="0" name="CONDITION_PERCENTAGE" type="xs:string"/>
+   <xs:element minOccurs="0" name="CONDITION_RATE" type="xs:string"/>
+   <xs:element maxOccurs="unbounded" minOccurs="0" name="AMOUNT_DETAILS" type="AMOUNT_DETAILS"/>
+   <xs:element maxOccurs="unbounded" minOccurs="0" name="TXT" type="TXT"/>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="AMOUNT_DETAILS">
+  <xs:sequence>
+   <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+   <xs:element minOccurs="0" name="AMOUNT" type="xs:string"/>
+   <xs:element minOccurs="0" name="CURRENCY" type="xs:string"/>
+   <xs:element minOccurs="0" name="PRICE_UNIT" type="xs:string"/>
+   <xs:element minOccurs="0" name="MEASURE_UNIT_QUALIFIER" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="TAX">
+  <xs:sequence>
+   <xs:element minOccurs="0" name="QUALIFIER" type="xs:string"/>
+   <xs:element minOccurs="0" name="TAX" type="xs:string"/>
+   <xs:element minOccurs="0" name="ADDITIONAL_INFO" type="xs:string"/>
+   <xs:element maxOccurs="unbounded" minOccurs="0" name="AMOUNT_DETAILS" type="AMOUNT_DETAILS"/>
+  </xs:sequence>
+ </xs:complexType>
+</xs:schema>

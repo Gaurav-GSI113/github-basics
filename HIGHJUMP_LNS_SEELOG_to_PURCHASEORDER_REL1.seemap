@@ -1,0 +1,623 @@
+(:
+HIGHJUMP_LNS_SEELOG_to_PURCHASEORDER_REL1.seemap
+created at Sep 28, 2021 by GSI113
+Copyright (c) SEEBURGER AG, Germany. All Rights Reserved.
+Updated at 16-11-2021 by DBH074 for map V3.0
+:)
+import schema default element namespace "" at "SEEDELFOR_V3_0.seexsd" as source;
+import schema default element namespace "http://www.seeburger.com/BISMD_Workshop/SND_Warehouse_B2B_APIs_100_distribution-center_purchase-order_post_requestBody" at "SND_Warehouse_B2B_APIs_100_distribution-center_purchase-order_post_requestBody.seexsd" as target;
+declare option pretty.print "true";
+declare option target.encoding "UTF-8";
+
+root <- /SEEDELFOR/CNT/GRP/MSG
+{
+
+	doc("mapping:output-parameters")
+	{
+		SEEXML_ACTION_CODE := REF[QUALIFIER = 'MESSAGE_FUNCTION']/REFERENCE
+		SEEXML_MESSAGE_TYPE := ME/MESSAGE_TYPE
+	}
+	if(isFilled(ADD[QUALIFIER = "18"]/IDENTIFIER))
+	{
+		whId := ADD[QUALIFIER = "18"]/IDENTIFIER
+	}
+	if(isFilled(REF[QUALIFIER = "CLIENT"]/REFERENCE))
+	{
+		clientCode := REF[QUALIFIER = "CLIENT"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ON"]/REFERENCE))
+	{
+		poNumber := concat(REF[QUALIFIER = "CLIENT"]/REFERENCE, "+", REF[QUALIFIER = "ON"]/REFERENCE)
+	}
+	if(isFilled(ADD[QUALIFIER = "CA"]/IDENTIFIER))
+	{
+		carrierCode := ADD[QUALIFIER = "CA"]/IDENTIFIER
+	}
+	if(isFilled(ADD[QUALIFIER = "STATUS"]/IDENTIFIER))
+	{
+		status := ADD[QUALIFIER = "STATUS"]/IDENTIFIER
+	}
+
+	type := "N"
+	residentialFlag := "N"
+	if(isFilled(REF[QUALIFIER = "TYP"]/REFERENCE))
+	{
+		typeName := REF[QUALIFIER = "TYP"]/REFERENCE
+	}
+	if(isFilled(ADD[QUALIFIER = "VR"]/IDENTIFIER))
+	{
+		vendorCode := ADD[QUALIFIER = "VR"]/IDENTIFIER
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = 'ClassId']/REFERENCE))
+	{
+		classId := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = 'ClassId']/REFERENCE
+	}
+	if(isFilled(TXT[QUALIFIER = "CUR"]/TEXT_LINE))
+	{
+		remarks := TXT[QUALIFIER = "CUR"]/TEXT_LINE
+	}
+	if(isFilled(QTY[QUALIFIER = "21"]/QUANTITY))
+	{
+		orderPcs := QTY[QUALIFIER = "21"]/QUANTITY
+	}
+	if(isFilled(WEIGHT_AND_VOLUME/GROSS_WEIGHT))
+	{
+		orderWeight := WEIGHT_AND_VOLUME/GROSS_WEIGHT
+	}
+	if(isFilled(WEIGHT_AND_VOLUME/VOLUME))
+	{
+
+		orderCbm := WEIGHT_AND_VOLUME/VOLUME
+	}
+	if(isFilled(ADD[QUALIFIER = "SH"]/IDENTIFIER))
+	{
+
+		ownerId := ADD[QUALIFIER = "SH"]/IDENTIFIER
+	}
+	if(isFilled(REF[QUALIFIER = "CO"]/REFERENCE))
+	{
+
+		clientOrderNumber := REF[QUALIFIER = "CO"]/REFERENCE
+	}
+	
+	(:if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = 'DisplayOrderNumber']/REFERENCE))
+	{
+
+		displayPoNumber := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = 'DisplayOrderNumber']/REFERENCE
+	}:)
+	
+	if(isFilled(REF[QUALIFIER = "ON"]/REFERENCE))
+	{
+
+		displayPoNumber := REF[QUALIFIER = "ON"]/REFERENCE
+	}
+	
+	if(isFilled(ADD[QUALIFIER = "SF"]/NAME_1))
+	{
+
+		shipFromName := ADD[QUALIFIER = "SF"]/NAME_1
+	}
+	if(isFilled(ADD[QUALIFIER = "SF"]/STREET_1))
+	{
+
+		shipFromAddr1 := ADD[QUALIFIER = "SF"]/STREET_1
+	}
+	if(isFilled(ADD[QUALIFIER = "SF"]/STREET_2))
+	{
+
+		shipFromAddr2 := ADD[QUALIFIER = "SF"]/STREET_2
+	}
+	if(isFilled(ADD[QUALIFIER = "SF"]/CITY))
+	{
+		shipFromCity := ADD[QUALIFIER = "SF"]/CITY
+	}
+	if(isFilled(ADD[QUALIFIER = "SF"]/STATE))
+	{
+
+		shipFromState := ADD[QUALIFIER = "SF"]/STATE
+	}
+	if(isFilled(ADD[QUALIFIER = "SF"]/POSTAL_CODE))
+	{
+		shipFromPostalCode := ADD[QUALIFIER = "SF"]/POSTAL_CODE
+	}
+	if(isFilled(ADD[QUALIFIER = "SF"]/COUNTRY_CODE))
+	{
+
+		shipFromCountryCode := ADD[QUALIFIER = "SF"]/COUNTRY_CODE
+	}
+	if(isFilled(ADD[QUALIFIER = "SF"]/NAME_2))
+	{
+
+		shipFromAttention := ADD[QUALIFIER = "SF"]/NAME_2
+	}
+	if(isFilled(ADD[QUALIFIER = 'SF']/CONTACT[QUALIFIER = 'CO']/CONTACT_NUMBERS[QUALIFIER = 'TE']/NUMBER))
+	{
+
+		shipFromPhone := ADD[QUALIFIER = 'SF']/CONTACT[QUALIFIER = 'CO']/CONTACT_NUMBERS[QUALIFIER = 'TE']/NUMBER
+	}
+	if(isFilled(ADD[QUALIFIER = 'SF']/CONTACT[QUALIFIER = 'CO']/CONTACT_NUMBERS[QUALIFIER = 'FX']/NUMBER))
+	{
+
+		shipFromFax := ADD[QUALIFIER = 'SF']/CONTACT[QUALIFIER = 'CO']/CONTACT_NUMBERS[QUALIFIER = 'FX']/NUMBER
+	}
+	if(isFilled(ADD[QUALIFIER = 'CA']/ADDITIONAL_DATA[QUALIFIER = '304']/DATA))
+	{
+
+		carrierScac := ADD[QUALIFIER = 'CA']/ADDITIONAL_DATA[QUALIFIER = '304']/DATA
+	}
+	if(isFilled(TRANSPORT_DETAILS/ADDITIONAL_DETAILS[QUALIFIER = "ANSI_SERVICE_LEVEL_CODE"]/DETAILS))
+	{
+
+		serviceLevel := TRANSPORT_DETAILS/ADDITIONAL_DETAILS[QUALIFIER = "ANSI_SERVICE_LEVEL_CODE"]/DETAILS
+	}
+	if(isFilled(TRANSPORT_DETAILS/ADDITIONAL_DETAILS[QUALIFIER = "304"]/DETAILS))
+	{
+
+		freightTerms := TRANSPORT_DETAILS/ADDITIONAL_DETAILS[QUALIFIER = "FREIGHT_TERMS"]/DETAILS
+	}
+	if(isFilled(TRANSPORT_DETAILS/MODE_OF_TRANSPORT))
+	{
+		shipmentMethod := TRANSPORT_DETAILS/MODE_OF_TRANSPORT
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = 'Specialist']/REFERENCE))
+	{
+
+		specialist := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = 'Specialist']/REFERENCE
+	}
+	if(isFilled(ADD[QUALIFIER = "CU"]/NAME_1))
+	{
+		customerName := ADD[QUALIFIER = "CU"]/NAME_1
+	}
+	if(isFilled(ADD[QUALIFIER = "CU"]/IDENTIFIER))
+	{
+
+		customerNumber := ADD[QUALIFIER = "CU"]/IDENTIFIER
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = 'udf4']/REFERENCE))
+	{
+		udf4 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = 'udf4']/REFERENCE
+	}
+	if(isFilled(ADD[QUALIFIER = "9"]/IDENTIFIER))
+	{
+
+		portOfDeparture := ADD[QUALIFIER = "9"]/IDENTIFIER
+	}
+	if(isFilled(ADD[QUALIFIER = "11"]/IDENTIFIER))
+	{
+
+		portOfArrival := ADD[QUALIFIER = "11"]/IDENTIFIER
+	}
+	if(isFilled(TRANSPORT_DETAILS/ADDITIONAL_DETAILS[QUALIFIER = "VN"]/DETAILS))
+	{
+		vessel := TRANSPORT_DETAILS/ADDITIONAL_DETAILS[QUALIFIER = "VN"]/DETAILS
+	}
+	if(isFilled(DATE[QUALIFIER = "132"]/DATE))
+	{
+		etaDate := DATE[QUALIFIER = "132"]/DATE
+	}
+	if(isFilled(TRANSPORT_DETAILS/ADDITIONAL_DETAILS[QUALIFIER = "SN"]/DETAILS))
+	{
+		seal1 := TRANSPORT_DETAILS/ADDITIONAL_DETAILS[QUALIFIER = "SN"]/DETAILS
+	}
+	if(isFilled(TRANSPORT_DETAILS/ADDITIONAL_DETAILS[QUALIFIER = "TE"]/DETAILS))
+	{
+
+		seal2 := TRANSPORT_DETAILS/ADDITIONAL_DETAILS[QUALIFIER = "TE"]/DETAILS
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "lp_sequence"]/REFERENCE))
+	{
+
+		lpSequence := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "lp_sequence"]/REFERENCE
+	}
+	if(isFilled(DATE[QUALIFIER = "4"]/DATE))
+	{
+		poArrival := DATE[QUALIFIER = "4"]/DATE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField1"]/REFERENCE))
+	{
+		genericField1 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField1"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField2"]/REFERENCE))
+	{
+		genericField2 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField2"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField3"]/REFERENCE))
+	{
+		genericField3 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField3"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField4"]/REFERENCE))
+	{
+		genericField4 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField4"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField5"]/REFERENCE))
+	{
+		genericField5 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField5"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField6"]/REFERENCE))
+	{
+		genericField6 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField6"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField7"]/REFERENCE))
+	{
+		genericField7 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField7"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField8"]/REFERENCE))
+	{
+		genericField8 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField8"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField9"]/REFERENCE))
+	{
+		genericField9 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField9"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField10"]/REFERENCE))
+	{
+		genericField10 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField10"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericDate1"]/REFERENCE))
+	{
+		genericDate1 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericDate1"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericDate2"]/REFERENCE))
+	{
+		genericDate2 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericDate2"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericDate3"]/REFERENCE))
+	{
+		genericDate3 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericDate3"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericQty1"]/REFERENCE))
+	{
+		genericQty1 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericQty1"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericQty2"]/REFERENCE))
+	{
+		genericQty2 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericQty2"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericQty3"]/REFERENCE))
+	{
+		genericQty3 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericQty3"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField11"]/REFERENCE))
+	{
+		genericField11 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField11"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField12"]/REFERENCE))
+	{
+		genericField12 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField12"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField13"]/REFERENCE))
+	{
+		genericField13 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField13"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField14"]/REFERENCE))
+	{
+		genericField14 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField14"]/REFERENCE
+	}
+	if(isFilled(REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField15"]/REFERENCE))
+	{
+		genericField15 := REF[QUALIFIER = "ZZ" and ADDITIONAL_INFO = "GenericField15"]/REFERENCE
+	}
+
+	poDetailList
+	{
+		poDetailList_item <- /SEEDELFOR/CNT/GRP/MSG/ITEM
+		{
+			actionCode := switch(REF[QUALIFIER = "MESSAGE_FUNCTION"]/REFERENCE)
+							case '3' return 'Delete'
+							case '4' return 'Update'
+							case '9' return 'Create'
+							default return ''
+			if(isFilled(ITEM_POS/LINE_ITEM_NUMBER))
+			{
+				lineNumber := ITEM_POS/LINE_ITEM_NUMBER
+			}
+			if(isFilled(ITEM_NUMBER[QUALIFIER = "SK"]/ITEM_NUMBER))
+			{
+
+				itemNumber := concat(../REF[QUALIFIER = "CLIENT"]/REFERENCE, "+", ITEM_NUMBER[QUALIFIER = "SK"]/ITEM_NUMBER)
+			}
+			if(isFilled(REF[QUALIFIER = "AAN"]/REFERENCE))
+			{
+
+				scheduleNumber := REF[QUALIFIER = "AAN"]/REFERENCE
+			}
+			if(isFilled(QTY[QUALIFIER = '21']/QUANTITY))
+			{
+
+				qty := QTY[QUALIFIER = '21']/QUANTITY
+			}
+			if(isFilled(ITEM_NUMBER[QUALIFIER = "VS"]/ITEM_NUMBER))
+			{
+				vendorItemNumber := ITEM_NUMBER[QUALIFIER = "VS"]/ITEM_NUMBER
+			}
+			if(isFilled(../DATE[QUALIFIER = '2']/DATE))
+			{
+
+				deliveryDate := ../DATE[QUALIFIER = '2']/DATE
+			}
+			if(isFilled(ADD[QUALIFIER = 'CT']/COUNTRY_CODE))
+			{
+
+				originator := ADD[QUALIFIER = 'CT']/COUNTRY_CODE
+			}
+			if(isFilled(QTY[QUALIFIER = '21']/QUANTITY_UNIT))
+			{
+
+				orderUom := QTY[QUALIFIER = '21']/QUANTITY_UNIT
+			}
+			if(isFilled(WEIGHT_AND_VOLUME/VOLUME))
+			{
+				orderCbm := WEIGHT_AND_VOLUME/VOLUME
+			}
+			if(isFilled(WEIGHT_AND_VOLUME/GROSS_WEIGHT))
+			{
+				orderWeight := WEIGHT_AND_VOLUME/GROSS_WEIGHT
+			}
+			if(isFilled(QTY[QUALIFIER = '71']/QUANTITY))
+			{
+
+				pcs := QTY[QUALIFIER = '71']/QUANTITY
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'Marks']/REFERENCE))
+			{
+				marks := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'Marks']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = "HS"]/REFERENCE))
+			{
+				hsCode := REF[QUALIFIER = "HS"]/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = "EAN_PT"]/REFERENCE))
+			{
+				packingType := REF[QUALIFIER = "EAN_PT"]/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = "CL"]/REFERENCE))
+			{
+				color := REF[QUALIFIER = "CL"]/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = "SZ"]/REFERENCE))
+			{
+				size := REF[QUALIFIER = "SZ"]/REFERENCE
+			}
+			if(isFilled(QTY[QUALIFIER = '74']/QUANTITY))
+			{
+
+				pieces := QTY[QUALIFIER = '74']/QUANTITY
+			}
+			if(isFilled(ITEM_NUMBER[QUALIFIER = "ZZZ"]/ITEM_NUMBER))
+			{
+				customerReferenceNo := ITEM_NUMBER[QUALIFIER = "ZZZ"]/ITEM_NUMBER
+			}
+			if(isFilled(ITEM_NUMBER[QUALIFIER = "EN"]/ITEM_NUMBER))
+			{
+				customerArticleNumber := ITEM_NUMBER[QUALIFIER = "EN"]/ITEM_NUMBER
+			}
+			if(isFilled(REF[QUALIFIER = "3H"]/REFERENCE))
+			{
+
+				customerCaseNumber := REF[QUALIFIER = "3H"]/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = "ABT"]/REFERENCE))
+			{
+				customsSheetNo := REF[QUALIFIER = "ABT"]/REFERENCE
+			}
+			if(isFilled(DATE[QUALIFIER = '141']/DATE))
+			{
+
+				custsheetnoEnterDt := DATE[QUALIFIER = '141']/DATE
+			}
+			if(isFilled(DATE[QUALIFIER = '64']/DATE))
+			{
+				earliestDeliveryDate := DATE[QUALIFIER = '64']/DATE
+			}
+			if(isFilled(DATE[QUALIFIER = 'SDE']/DATE))
+			{
+				earliestShipDate := DATE[QUALIFIER = 'SDE']/DATE
+			}
+			if(isFilled(DATE[QUALIFIER = '63']/DATE))
+			{
+				latestDeliveryDate := DATE[QUALIFIER = '63']/DATE
+			}
+			if(isFilled(DATE[QUALIFIER = 'SDL']/DATE))
+			{
+
+				latestShipDate := DATE[QUALIFIER = 'SDL']/DATE
+			}
+			if(isFilled(AMOUNT_DETAILS[QUALIFIER = '116']/AMOUNT))
+			{
+				costPrice := AMOUNT_DETAILS[QUALIFIER = '116']/AMOUNT
+			}
+			if(isFilled(REF[QUALIFIER = "VN"]/REFERENCE))
+			{
+				supplierSo := REF[QUALIFIER = "VN"]/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField1']/REFERENCE))
+			{
+				genericField1 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField1']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField2']/REFERENCE))
+			{
+				genericField2 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField2']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField3']/REFERENCE))
+			{
+				genericField3 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField3']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'Inspection']/REFERENCE))
+			{
+
+				inspection := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'Inspection']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'PalletDimension']/REFERENCE))
+			{
+
+				palletDimension := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'PalletDimension']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'MaxLoad']/REFERENCE))
+			{
+
+				maxLoad := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'MaxLoad']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'PalletLoad']/REFERENCE))
+			{
+				palletLoad := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'PalletLoad']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'LT']/REFERENCE))
+			{
+				lotNumber := REF[QUALIFIER = 'LT']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'O5']/REFERENCE))
+			{
+
+				o5 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'O5']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'P3']/REFERENCE))
+			{
+
+				p3 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'P3']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'L5']/REFERENCE))
+			{
+
+				l5 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'L5']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'O4']/REFERENCE))
+			{
+
+				o4 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'O4']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'O2']/REFERENCE))
+			{
+				o2 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'O2']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'L4']/REFERENCE))
+			{
+				l4 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'L4']/REFERENCE
+			}
+			if(isFilled(TXT[QUALIFIER = 'CUR']/TEXT_LINE))
+			{
+				remark := TXT[QUALIFIER = 'CUR']/TEXT_LINE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField4']/REFERENCE))
+			{
+				genericField4 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField4']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField5']/REFERENCE))
+			{
+				genericField5 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField5']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField6']/REFERENCE))
+			{
+				genericField6 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField6']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField7']/REFERENCE))
+			{
+				genericField7 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField7']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField8']/REFERENCE))
+			{
+				genericField8 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField8']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField9']/REFERENCE))
+			{
+				genericField9 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField9']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField10']/REFERENCE))
+			{
+				genericField10 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField10']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericDate1']/REFERENCE))
+			{
+				genericDate1 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericDate1']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericDate2']/REFERENCE))
+			{
+				genericDate2 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericDate2']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericDate3']/REFERENCE))
+			{
+				genericDate3 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericDate3']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericQty1']/REFERENCE))
+			{
+				genericQty1 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericQty1']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericQty2']/REFERENCE))
+			{
+				genericQty2 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericQty2']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericQty3']/REFERENCE))
+			{
+				genericQty3 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericQty3']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField11']/REFERENCE))
+			{
+				genericField11 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField11']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField12']/REFERENCE))
+			{
+				genericField12 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField12']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField13']/REFERENCE))
+			{
+				genericField13 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField13']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField14']/REFERENCE))
+			{
+				genericField14 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField14']/REFERENCE
+			}
+			if(isFilled(REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField15']/REFERENCE))
+			{
+				genericField15 := REF[QUALIFIER = 'ZZ' and ADDITIONAL_INFO = 'GenericField15']/REFERENCE
+			}
+
+			poDetailCommentList
+			{
+				poDetailCommentList_item <- TXT[QUALIFIER='AFB']
+				{
+					commentType := substring-after(TEXT_LINE[(contains(.,'type;'))],';')
+					commentText := substring-after(TEXT_LINE[(contains(.,'text;'))],';')
+					commentDate := substring-after(TEXT_LINE[(contains(.,'date;'))],';')
+					sequence :=  substring-after(TEXT_LINE[(contains(.,'sequence;'))],';')
+					genericField1 := substring-after(TEXT_LINE[(contains(.,'genfield1;'))],';')
+				}
+			}
+		}
+	}
+	if(isFilled(substring-after(TXT[QUALIFIER = 'AFB' and(contains-word(TEXT_LINE, 'linenumber') or(contains-word(TEXT_LINE, 'type') or contains-word(TEXT_LINE, 'text') or contains-word(TEXT_LINE, 'schedule') or contains-word(TEXT_LINE, 'date') or contains-word(TEXT_LINE, 'sequence')))]/TEXT_LINE, ';')))
+	{
+		poCommentList
+		{
+			poCommentList_item <- /SEEDELFOR/CNT/GRP/MSG/TXT[QUALIFIER = 'AFB']
+			{
+				if(isFilled(substring-after(TEXT_LINE[(contains(.,'linenumber;'))],';')))
+				{
+					lineNumber := substring-after(TEXT_LINE[(contains(.,'linenumber;'))],';')
+					
+				}
+				if(isFilled(substring-after(TEXT_LINE[(contains(.,'type;'))],';')))
+				{
+
+					commentType := substring-after(TEXT_LINE[(contains(.,'type;'))],';')
+				}
+				if(isFilled(substring-after(TEXT_LINE[(contains(.,'text;'))],';')))
+				{
+					commentText := substring-after(TEXT_LINE[(contains(.,'text;'))],';')
+				}
+				if(isFilled(substring-after(TEXT_LINE[(contains(.,'schedule;'))],';')))
+				{
+					scheduleNumber := substring-after(TEXT_LINE[(contains(.,'schedule;'))],';')
+				}
+				if(isFilled(substring-after(TEXT_LINE[(contains(.,'date;'))],';')))
+				{
+					commentDate := substring-after(TEXT_LINE[(contains(.,'date;'))],';')
+				}
+				if(isFilled(substring-after(TEXT_LINE[(contains(.,'sequence;'))],';')))
+				{
+					sequence := substring-after(TEXT_LINE[(contains(.,'sequence;'))],';')
+				}
+			}
+		}
+	}
+}
+
+

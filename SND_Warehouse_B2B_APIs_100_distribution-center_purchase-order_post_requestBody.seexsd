@@ -1,0 +1,2376 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.seeburger.com/BISMD_Workshop/SND_Warehouse_B2B_APIs_100_distribution-center_purchase-order_post_requestBody" xmlns:bic="http://www.seeburger.com/bicng/lang/schema/" xmlns:json="http://www.seeburger.com/bicng/lang/schema/json" xmlns:xsd="http://www.w3.org/2001/XMLSchema" bic:messageType="JSON" elementFormDefault="qualified" targetNamespace="http://www.seeburger.com/BISMD_Workshop/SND_Warehouse_B2B_APIs_100_distribution-center_purchase-order_post_requestBody">
+  <xsd:import namespace="http://www.seeburger.com/bicng/lang/schema/json" schemaLocation="platform:/plugin/com.seeburger.bicng.lang.schema.facade.json/resources/json.xsd"/>
+  <xsd:complexType name="PoMasterDto">
+    <xsd:complexContent>
+      <xsd:extension base="json:Object">
+        <xsd:all>
+          <xsd:element maxOccurs="1" minOccurs="1" name="whId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Warehouse ID</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="clientCode">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Client Code</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="poNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Po Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="carrierCode">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Carrier Code</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="status">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Status</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="1"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="type">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Type</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="1"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="residentialFlag">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Residential Flag</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="1"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="typeName">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Type Name</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="typeId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Type Id</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vendorCode">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Vendor Code</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="80"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="classId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Class Id</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="remarks">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Remarks</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="orderPcs">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Order Pcs</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="orderWeight">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Order Weight</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="orderCbm">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Order Cbm</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ownerId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Owner Id</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="clientOrderNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Client Order Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="displayPoNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Display Po Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipFromName">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Ship From Name</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipFromAddr1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Ship From Addr1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipFromAddr2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Ship From Addr2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipFromCity">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Ship From City</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipFromState">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Ship From State</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="3"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipFromPostalCode">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Ship From Postal Code</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="12"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipFromCountryCode">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Ship From Country Code</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="5"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipFromAttention">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Ship From Attention</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipFromPhone">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Ship From Phone</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipFromFax">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Ship From Fax</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="carrierScac">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Carrier Scac</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="carrierMode">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Carrier Mode</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="serviceLevel">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Service Level</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="freightTerms">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Freight Terms</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="customerCode">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Customer Code</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipmentMethod">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Shipment Method</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="specialist">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Specialist</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="customerName">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Customer Name</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="60"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="customerNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Customer Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="80"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="udf4">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Udf4</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="300"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="portOfDeparture">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Port Of Departure</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="portOfArrival">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Port Of Arrival</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vessel">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Vessel</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="etaDate">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Eta Date</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="seal1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Seal1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="seal2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Seal2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="lpSequence">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Lp Sequence</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="poArrival">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Po Arrival</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField3">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField4">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 4</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField5">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 5</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField6">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 6</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField7">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 7</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField8">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 8</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField9">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 9</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField10">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 10</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="countryOfOrign">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Country Of Orign</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericDate1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Date 1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericDate2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Date 2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericDate3">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Date 3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericQty1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Qty 1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericQty2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Qty 2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericQty3">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Qty 3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField11">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 11</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField12">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 12</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField13">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 13</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField14">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 14</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField15">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 15</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="poDetailList">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">PO Detail list under current PO</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:complexContent>
+                <xsd:extension base="json:Array">
+                  <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="poDetailList_item" type="PoDetailDto"/>
+                  </xsd:sequence>
+                </xsd:extension>
+              </xsd:complexContent>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="poCommentList">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">PO Comment list under current PO</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:complexContent>
+                <xsd:extension base="json:Array">
+                  <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="poCommentList_item" type="PoCommentDto"/>
+                  </xsd:sequence>
+                </xsd:extension>
+              </xsd:complexContent>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PoDetailDto">
+    <xsd:complexContent>
+      <xsd:extension base="json:Object">
+        <xsd:all>
+          <xsd:element maxOccurs="1" minOccurs="0" name="actionCode">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Action code(Create|Update|Delete|Merge|ExistByPass|AddAfterDelete)</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="lineNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Line Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="5"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="itemNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Item Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="scheduleNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Schedule Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="qty">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Qty</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vendorItemNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Vendor Item Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="deliveryDate">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Delivery Date</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="originator">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Originator</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="25"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="orderUom">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Order Uom</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="specialProcessing">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Special Processing</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="3"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="locationId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Location Id</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="distroProcess">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Distro Process</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="3"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="vasProfileId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Vas Profile Id</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="storedAttributeId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Stored Attribute Id</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="orderCbm">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Order Cbm</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="orderWeight">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Order Weight</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="pcs">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Pcs</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="marks">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Marks</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="hsCode">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Hs Code</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="packingType">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Packing Type</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="20"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="color">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Color</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="size">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Size</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="pieces">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Pieces</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="customerReferenceNo">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Customer Reference No</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="customerArticleNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Customer Article Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="customerCaseNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Customer Case Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="newFlag">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">New Flag</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="1"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="customsSheetNo">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Customs Sheet No</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="custsheetnoEnterDt">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Custsheetno Enter Dt</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="earliestDeliveryDate">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Earliest Delivery Date</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="earliestShipDate">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Earliest Ship Date</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latestDeliveryDate">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Latest Delivery Date</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="latestShipDate">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Latest Ship Date</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="costPrice">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Cost Price</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="supplierSo">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Supplier So</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField3">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="edcPrice">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Edc Price</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="inspection">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Inspection</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="1"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shpmentFlow">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Shpment Flow</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="productType">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Product Type</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filler">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Filler</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="80"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="palletDimension">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Pallet Dimension</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="80"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="maxLoad">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Max Load</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="80"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="palletLoad">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Pallet Load</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="80"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="lotNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Lot Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="customsSheetCode">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Customs Sheet Code</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="originCustomsCode">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Origin Customs Code</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="o5">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">O5</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="p3">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">P3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="l5">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">L5</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="o4">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">O4</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="o2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">O2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="l4">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">L4</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="priceUsd">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Price Usd</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="80"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="amountUsd">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Amount Usd</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="80"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="composition">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Composition</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="80"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tariffNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Tariff Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="80"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="remark">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Remark</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="200"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField4">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 4</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField5">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 5</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField6">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 6</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField7">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 7</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField8">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 8</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField9">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 9</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField10">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 10</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="confirmBonded">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Confirm Bonded</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="confirmFree">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Confirm Free</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="confirmKit">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Confirm Kit</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="bondedQty">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Bonded Qty</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="freeQty">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Free Qty</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="asnQty">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Asn Qty</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="preBondedQty">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Pre Bonded Qty</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="preFreeQty">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Pre Free Qty</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="isRekitItem">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Is Rekit Item</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="1"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericDate1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Date 1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericDate2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Date 2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericDate3">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Date 3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericQty1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Qty 1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericQty2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Qty 2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericQty3">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Qty 3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField11">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 11</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField12">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 12</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField13">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 13</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField14">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 14</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField15">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 15</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="poDetailCommentList">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">PO Detail Comment list under current PO Detail</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:complexContent>
+                <xsd:extension base="json:Array">
+                  <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="poDetailCommentList_item" type="PoDetailCommentDto"/>
+                  </xsd:sequence>
+                </xsd:extension>
+              </xsd:complexContent>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="hjdcCartonDetailList">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">HJDC carton detail list under current PO Detail</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:complexContent>
+                <xsd:extension base="json:Array">
+                  <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="hjdcCartonDetailList_item" type="HjdcCartonDetailDto"/>
+                  </xsd:sequence>
+                </xsd:extension>
+              </xsd:complexContent>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PoDetailCommentDto">
+    <xsd:complexContent>
+      <xsd:extension base="json:Object">
+        <xsd:all>
+          <xsd:element maxOccurs="1" minOccurs="1" name="commentType">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Comment Type</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="1"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="commentText">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Comment Text</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="70"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="commentDate">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Comment Date</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sequence">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Sequence</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="HjdcCartonDetailDto">
+    <xsd:complexContent>
+      <xsd:extension base="json:Object">
+        <xsd:all>
+          <xsd:element maxOccurs="1" minOccurs="0" name="shipmentNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Shipment Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="expirationDate">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Expiration Date</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="expectQty">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Expect Qty</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ucc">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Ucc</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="reference1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Reference1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="reference2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Reference2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="reference3">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Reference3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="reference4">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Reference4</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="reference5">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Reference5</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="status">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Status</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="1"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="forkId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Fork Id</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="dimension">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Dimension</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="huId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Hu Id</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="storedAttributeId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Stored Attribute Id</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="length">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Length</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="width">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Width</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="height">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Height</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="weight">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Weight</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericAttrValue1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Attr Value 1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericAttrValue2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Attr Value 2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericAttrValue3">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Attr Value 3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericAttrValue4">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Attr Value 4</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericAttrValue5">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Attr Value 5</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericAttrValue6">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Attr Value 6</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericAttrValue7">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Attr Value 7</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericAttrValue8">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Attr Value 8</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericAttrValue9">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Attr Value 9</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericAttrValue10">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Attr Value 10</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericAttrValue11">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Attr Value 11</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField2">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField3">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField4">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 4</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField5">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 5</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField6">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 6</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField7">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 7</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField8">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 8</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField9">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 9</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField10">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 10</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField11">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 11</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField12">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 12</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField13">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 13</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField14">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 14</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="genericField15">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Generic Field 15</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sendtolocaldb">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">SendToLocalDB</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="senddate">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">SendDate</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="containerLabel">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Container Label</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="pickingListId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Picking List Id</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="scanFlag">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Scan Flag</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="qtyReceived">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Qty Received</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Number</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Number"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="receivedBy">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Received By</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="receivedDate">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Received Date</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="receiptId">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Receipt Id</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PoCommentDto">
+    <xsd:complexContent>
+      <xsd:extension base="json:Object">
+        <xsd:all>
+          <xsd:element maxOccurs="1" minOccurs="1" name="lineNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Line Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="5"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="commentType">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Comment Type</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="1"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="commentText">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Comment Text</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String">
+                <xsd:maxLength value="70"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="scheduleNumber">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Schedule Number</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="commentDate">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Comment Date</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="json:String"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sequence">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">Sequence</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+                  <dataType xmlns="http://www.seeburger.com/bicng/lang/schema/json">Integer</dataType>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:restriction base="json:Integer"/>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="root" type="PoMasterDto"/>
+</xsd:schema>
