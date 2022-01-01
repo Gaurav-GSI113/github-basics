@@ -1,4 +1,4 @@
-(:
+ (:
 HIGHJUMP_LNS_SEELOG_to_PURCHASEORDER_REL1.seemap
 created at Sep 28, 2021 by GSI113
 Copyright (c) SEEBURGER AG, Germany. All Rights Reserved.
@@ -38,7 +38,7 @@ root <- /SEEDELFOR/CNT/GRP/MSG
 		status := ADD[QUALIFIER = "STATUS"]/IDENTIFIER
 	}
 
-	type := "N"
+	type := "our firststep in git"
 	residentialFlag := "N"
 	if(isFilled(REF[QUALIFIER = "TYP"]/REFERENCE))
 	{
@@ -56,14 +56,14 @@ root <- /SEEDELFOR/CNT/GRP/MSG
 	{
 		remarks := TXT[QUALIFIER = "CUR"]/TEXT_LINE
 	}
-	if(isFilled(QTY[QUALIFIER = "21"]/QUANTITY))
+	if(isFilled(QTY[QUALIFIER = "22"]/QUANTITY))
 	{
-		orderPcs := QTY[QUALIFIER = "21"]/QUANTITY
+		orderPcs := QTY[QUALIFIER = "22"]/QUANTITY
 	}
 	if(isFilled(WEIGHT_AND_VOLUME/GROSS_WEIGHT))
 	{
 		orderWeight := WEIGHT_AND_VOLUME/GROSS_WEIGHT
-	}
+	}git 
 	if(isFilled(WEIGHT_AND_VOLUME/VOLUME))
 	{
 
